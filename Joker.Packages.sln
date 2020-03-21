@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.Mapping", "Joker.Mapp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.Extensions", "Joker.Extensions\Joker.Extensions.csproj", "{59D85058-F7B1-4320-AAAF-CD6D29F3325B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Repositories", "Joker.Repositories\Joker.Repositories.csproj", "{ED134E8C-3956-468C-8E62-CF55F544F332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.Repositories", "Joker.Repositories\Joker.Repositories.csproj", "{ED134E8C-3956-468C-8E62-CF55F544F332}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EntityFramaworkCore", "Joker.EntityFramaworkCore\Joker.EntityFramaworkCore.csproj", "{602E1C3C-C70A-45A0-8F0D-3D509FAABB25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{ED134E8C-3956-468C-8E62-CF55F544F332}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED134E8C-3956-468C-8E62-CF55F544F332}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED134E8C-3956-468C-8E62-CF55F544F332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{602E1C3C-C70A-45A0-8F0D-3D509FAABB25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602E1C3C-C70A-45A0-8F0D-3D509FAABB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602E1C3C-C70A-45A0-8F0D-3D509FAABB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602E1C3C-C70A-45A0-8F0D-3D509FAABB25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

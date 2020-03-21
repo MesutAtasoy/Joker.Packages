@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>Joker.EntityFrameworkCore</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Joker</Authors>
+    <Company>Joker</Company>
+    <PackageDescription>Joker EntityFramework!</PackageDescription>
+    <RepositoryUrl>https://github.com/MesutAtasoy/Joker.Packages</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Joker EntityFramework!</Description>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Joker.Mapping\Joker.Mapping.csproj"  PrivateAssets="All" />
+    <ProjectReference Include="..\Joker.Objects\Joker.Objects.csproj"  PrivateAssets="All" />
+    <ProjectReference Include="..\Joker.Repositories\Joker.Repositories.csproj" PrivateAssets="All"  />
+    <ProjectReference Include="..\Joker.Shared\Joker.Shared.csproj" PrivateAssets="All"  />
+  </ItemGroup>
+
+</Project>
