@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Objects", "Joker.Obje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Mapping", "Joker.Mapping\Joker.Mapping.csproj", "{CAF26D31-449F-4488-B8C8-F2F325A29F62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Extensions", "Joker.Extensions\Joker.Extensions.csproj", "{59D85058-F7B1-4320-AAAF-CD6D29F3325B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CAF26D31-449F-4488-B8C8-F2F325A29F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAF26D31-449F-4488-B8C8-F2F325A29F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAF26D31-449F-4488-B8C8-F2F325A29F62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59D85058-F7B1-4320-AAAF-CD6D29F3325B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D85058-F7B1-4320-AAAF-CD6D29F3325B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D85058-F7B1-4320-AAAF-CD6D29F3325B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D85058-F7B1-4320-AAAF-CD6D29F3325B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
