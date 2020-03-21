@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>Joker.Mvc</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Joker</Authors>
+    <Company>Joker</Company>
+    <PackageDescription>Joker Mvc!</PackageDescription>
+    <RepositoryUrl>https://github.com/MesutAtasoy/Joker.Packages</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Joker Mvc!</Description>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.HttpOverrides" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Joker.Shared\Joker.Shared.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>
