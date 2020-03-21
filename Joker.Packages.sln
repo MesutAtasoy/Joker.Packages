@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EventBusRabbitMQ", "J
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Cache", "Joker.Cache\Joker.Cache.csproj", "{739BA31A-0C9B-47B5-878A-9349842D4DF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.AspNetCore", "Joker.AspNetCore\Joker.AspNetCore.csproj", "{4FF2977F-AC14-42A9-84A0-3D62FECCF09A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{739BA31A-0C9B-47B5-878A-9349842D4DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{739BA31A-0C9B-47B5-878A-9349842D4DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{739BA31A-0C9B-47B5-878A-9349842D4DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FF2977F-AC14-42A9-84A0-3D62FECCF09A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FF2977F-AC14-42A9-84A0-3D62FECCF09A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FF2977F-AC14-42A9-84A0-3D62FECCF09A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FF2977F-AC14-42A9-84A0-3D62FECCF09A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

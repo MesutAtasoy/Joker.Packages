@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>Joker.AspNetCore</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Joker</Authors>
+    <Company>Joker</Company>
+    <PackageDescription>Joker AspNetCore!</PackageDescription>
+    <RepositoryUrl>https://github.com/MesutAtasoy/Joker.Packages</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Joker AspNetCore!</Description>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.2.0" />
+  </ItemGroup>
+
+</Project>
