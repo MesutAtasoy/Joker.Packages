@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EntityFramaworkCore",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EventBus", "Joker.EventBus\Joker.EventBus.csproj", "{7E70056D-3829-4EF9-B7EF-5A36BBAC6EB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EventBusRabbitMQ", "Joker.EventBusRabbitMQ\Joker.EventBusRabbitMQ.csproj", "{FFE2A5C3-F360-4DAC-B429-36933C3818D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7E70056D-3829-4EF9-B7EF-5A36BBAC6EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E70056D-3829-4EF9-B7EF-5A36BBAC6EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E70056D-3829-4EF9-B7EF-5A36BBAC6EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE2A5C3-F360-4DAC-B429-36933C3818D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE2A5C3-F360-4DAC-B429-36933C3818D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE2A5C3-F360-4DAC-B429-36933C3818D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE2A5C3-F360-4DAC-B429-36933C3818D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
