@@ -24,26 +24,5 @@ namespace Joker.Logging
             services.Configure<ElkOptions>(configuration);
             return services;
         }
-
-        public static Serilog.ILogger CreateSerilogLogger(IConfiguration configuration, string AppName)
-        {
-            var logger = new LoggerConfiguration()
-            .Enrich.FromLogContext()
-            .Enrich.WithExceptionDetails()
-            .Enrich.WithProperty("ApplicationName", AppName)
-            .WriteTo.Elasticsearch(
-                new ElasticsearchSinkOptions(new Uri(configuration["elk:Url"]))
-                {
-                    AutoRegisterTemplate = true,
-                    IndexFormat = configuration["elk:indexFormat"],
-                    CustomFormatter = new ExceptionAsObjectJsonFormatter(renderMessage: true)
-                });
-
-            var isEnabled = configuration.GetValue<bool>("logger:enabled");
-            if (isEnabled)
-                logger.WriteTo.MSSqlServer(configuration["logger:connectionString"], configuration["logger:tableName"]);
-
-            return logger.CreateLogger();
-        }
     }
 }
