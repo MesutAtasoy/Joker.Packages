@@ -13,17 +13,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.Extensions", "Joker.E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.Repositories", "Joker.Repositories\Joker.Repositories.csproj", "{ED134E8C-3956-468C-8E62-CF55F544F332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EntityFramaworkCore", "Joker.EntityFramaworkCore\Joker.EntityFramaworkCore.csproj", "{602E1C3C-C70A-45A0-8F0D-3D509FAABB25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.EntityFramaworkCore", "Joker.EntityFramaworkCore\Joker.EntityFramaworkCore.csproj", "{602E1C3C-C70A-45A0-8F0D-3D509FAABB25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EventBus", "Joker.EventBus\Joker.EventBus.csproj", "{7E70056D-3829-4EF9-B7EF-5A36BBAC6EB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.EventBus", "Joker.EventBus\Joker.EventBus.csproj", "{7E70056D-3829-4EF9-B7EF-5A36BBAC6EB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EventBusRabbitMQ", "Joker.EventBusRabbitMQ\Joker.EventBusRabbitMQ.csproj", "{FFE2A5C3-F360-4DAC-B429-36933C3818D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.EventBusRabbitMQ", "Joker.EventBusRabbitMQ\Joker.EventBusRabbitMQ.csproj", "{FFE2A5C3-F360-4DAC-B429-36933C3818D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Cache", "Joker.Cache\Joker.Cache.csproj", "{739BA31A-0C9B-47B5-878A-9349842D4DF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.Cache", "Joker.Cache\Joker.Cache.csproj", "{739BA31A-0C9B-47B5-878A-9349842D4DF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.AspNetCore", "Joker.AspNetCore\Joker.AspNetCore.csproj", "{4FF2977F-AC14-42A9-84A0-3D62FECCF09A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.AspNetCore", "Joker.AspNetCore\Joker.AspNetCore.csproj", "{4FF2977F-AC14-42A9-84A0-3D62FECCF09A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Mvc", "Joker.Mvc\Joker.Mvc.csproj", "{351CD6F3-612A-4E44-BD9A-7ACA38739728}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.Mvc", "Joker.Mvc\Joker.Mvc.csproj", "{351CD6F3-612A-4E44-BD9A-7ACA38739728}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.WebHost", "Joker.WebHost\Joker.WebHost.csproj", "{788F3363-AAB4-4D0A-BC4C-DF9747B75A4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Logging", "Joker.Logging\Joker.Logging.csproj", "{EF330219-904E-447E-A606-8F43569852EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,14 @@ Global
 		{351CD6F3-612A-4E44-BD9A-7ACA38739728}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{351CD6F3-612A-4E44-BD9A-7ACA38739728}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{351CD6F3-612A-4E44-BD9A-7ACA38739728}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788F3363-AAB4-4D0A-BC4C-DF9747B75A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788F3363-AAB4-4D0A-BC4C-DF9747B75A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788F3363-AAB4-4D0A-BC4C-DF9747B75A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788F3363-AAB4-4D0A-BC4C-DF9747B75A4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF330219-904E-447E-A606-8F43569852EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF330219-904E-447E-A606-8F43569852EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF330219-904E-447E-A606-8F43569852EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF330219-904E-447E-A606-8F43569852EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
