@@ -23,6 +23,7 @@ namespace Joker.EntityFrameworkCore
             }
         }
 
+        [Obsolete]
         public static DbContextOptionsBuilder ConfigureWarningsAsErrors(this DbContextOptionsBuilder options)
         {
             return options.ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));

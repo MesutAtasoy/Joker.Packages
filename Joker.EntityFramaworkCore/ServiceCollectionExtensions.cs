@@ -32,12 +32,6 @@ namespace Joker.EntityFramaworkCore
             JokerDbContextOptionBuilder contextOptionBuilder = new JokerDbContextOptionBuilder();
             optionBuilder.Invoke(contextOptionBuilder);
 
-            IConfiguration configuration;
-            using (var serviceProvider = services.BuildServiceProvider())
-            {
-                configuration = serviceProvider.GetService<IConfiguration>();
-            }
-
             if (string.IsNullOrEmpty(contextOptionBuilder.ConnectionString))
                 throw new ArgumentNullException("Connectionstring can not be null", nameof(contextOptionBuilder.ConnectionString));
 
@@ -64,12 +58,6 @@ namespace Joker.EntityFramaworkCore
         {
             JokerDbContextOptionBuilder contextOptionBuilder = new JokerDbContextOptionBuilder();
             optionBuilder.Invoke(contextOptionBuilder);
-
-            IConfiguration configuration;
-            using (var serviceProvider = services.BuildServiceProvider())
-            {
-                configuration = serviceProvider.GetService<IConfiguration>();
-            }
 
             if (string.IsNullOrEmpty(contextOptionBuilder.ConnectionString))
                 throw new ArgumentNullException("Connectionstring can not be null", nameof(contextOptionBuilder.ConnectionString));
