@@ -14,6 +14,5 @@
         RecordIsDeleted = 800,
         RecordIsAdded = 801,
         RecordIsUpdated = 802,
-
     }
 }

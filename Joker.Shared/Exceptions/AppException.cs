@@ -6,7 +6,6 @@ namespace Joker.Shared.Expections
     public class AppException : Exception
     {
         public string Code { get; }
-        public ApplicationStatusCode ApplicationStatusCode { get; set; }
 
         public AppException()
         {
@@ -16,11 +15,6 @@ namespace Joker.Shared.Expections
         {
             Code = code;
         }
-        public AppException(string message, ApplicationStatusCode applicationStatusCode)
-        {
-            ApplicationStatusCode = applicationStatusCode;
-        }
-
 
         public AppException(string message, params object[] args)
             : this(string.Empty, message, args)
