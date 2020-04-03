@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Html;
@@ -10,6 +11,15 @@ namespace Joker.Extensions
         public static string CamelCase(this string value)
         {
             return char.ToLowerInvariant(value[0]) + value.Substring(1);
+        }
+
+        public static Guid ToGuid(this string value)
+        {
+            var isValid = Guid.TryParse(value, out var guid);
+            if (!isValid)
+                throw new Exception("Invalid Guid");
+
+            return guid;
         }
 
         public static string RemoveSpecialCharacters(this string value)
