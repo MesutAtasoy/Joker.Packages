@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.WebHost", "Joker.WebH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Logging", "Joker.Logging\Joker.Logging.csproj", "{EF330219-904E-447E-A606-8F43569852EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Grpc", "Joker.Grpc\Joker.Grpc.csproj", "{8A42199D-224A-473E-9DDC-4C017C476100}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{EF330219-904E-447E-A606-8F43569852EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF330219-904E-447E-A606-8F43569852EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF330219-904E-447E-A606-8F43569852EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A42199D-224A-473E-9DDC-4C017C476100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A42199D-224A-473E-9DDC-4C017C476100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A42199D-224A-473E-9DDC-4C017C476100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A42199D-224A-473E-9DDC-4C017C476100}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

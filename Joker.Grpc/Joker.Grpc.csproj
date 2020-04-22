@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <PackageId>Joker.Grpc</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Joker</Authors>
+        <Company>Joker</Company>
+        <PackageDescription>Grpc Extensions!</PackageDescription>
+        <RepositoryUrl>https://github.com/MesutAtasoy/Joker.Packages</RepositoryUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Description>Grpc Extensions.</Description>
+        <ApplicationIcon />
+        <StartupObject />
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Grpc.Net.Client" Version="2.28.0" />
+      <PackageReference Include="Serilog" Version="2.9.0" />
+    </ItemGroup>
+
+</Project>
