@@ -1,7 +1,6 @@
-﻿
-using System;
+﻿using System;
 
-namespace Joker.Objects.PagedList
+namespace Joker.EntityFrameworkCore.Models
 {
     public class PagingParams
     {
@@ -22,4 +21,5 @@ namespace Joker.Objects.PagedList
             get { return Math.Min(CurrentPage * PageSize, RowCount); }
         }
     }
+
 }

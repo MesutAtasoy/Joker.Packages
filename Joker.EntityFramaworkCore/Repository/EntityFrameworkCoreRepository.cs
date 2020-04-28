@@ -1,4 +1,3 @@
-using Joker.Objects.PagedList;
 using Joker.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;

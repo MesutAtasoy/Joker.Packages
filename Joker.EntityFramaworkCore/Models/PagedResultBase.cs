@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Joker.Objects.PagedList
+﻿namespace Joker.EntityFrameworkCore.Models
 {
     public abstract class PagedResultBase
     {
