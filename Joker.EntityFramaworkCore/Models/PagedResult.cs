@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Joker.Objects.PagedList
+namespace Joker.EntityFrameworkCore.Models
 {
     public class PagedResult<T>  : PagedResultBase where T : class
     {
