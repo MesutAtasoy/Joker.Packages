@@ -1,7 +1,7 @@
 ﻿using Joker.Shared.Models.Enums;
 using System;
 
-namespace Joker.Shared.Expections
+namespace Joker.Shared.Exceptions
 {
     public class AppException : Exception
     {

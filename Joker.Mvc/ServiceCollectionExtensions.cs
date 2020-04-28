@@ -21,58 +21,45 @@ namespace Joker.Mvc
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             return services;
         }
-        public static IMvcCoreBuilder AddJokerMvcCore(this IServiceCollection services)
+
+        public static IServiceCollection AddStartupInitializer(this IServiceCollection services)
         {
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IStartupInitializer, StartupInitializer>();
-
-            return services
-                .AddMvcCore(options =>
-                {
-                    options.Filters.Add(typeof(ValidateModelStateAttribute));
-                })
-                .AddDataAnnotations()
-                .AddApiExplorer()
-                .AddDefaultJsonOptions()
-                .AddAuthorization()
-                .AddFluentValidation();
+            return services;
         }
+        
+        
+        // public static IMvcCoreBuilder AddJokerMvcCore(this IServiceCollection services)
+        // {
+        //     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        //
+        //     return services
+        //         .AddMvcCore(options =>
+        //         {
+        //             options.Filters.Add(typeof(ValidateModelStateAttribute));
+        //         })
+        //         .AddDataAnnotations()
+        //         .AddApiExplorer()
+        //         .AddDefaultJsonOptions()
+        //         .AddAuthorization()
+        //         .AddFluentValidation();
+        // }
+        //
+        // public static IMvcBuilder AddJokerMvc(this IServiceCollection services)
+        // {
+        //     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        //     services.AddScoped<IStartupInitializer, StartupInitializer>();
+        //
+        //     return services
+        //         .AddMvc(options =>
+        //         {
+        //             options.Filters.Add(typeof(ValidateModelStateAttribute));
+        //         })
+        //         .AddDefaultJsonOptions()
+        //         .AddFluentValidation();
+        // }
 
-        public static IMvcBuilder AddJokerMvc(this IServiceCollection services)
-        {
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<IStartupInitializer, StartupInitializer>();
-
-            return services
-                .AddMvc(options =>
-                {
-                    options.Filters.Add(typeof(ValidateModelStateAttribute));
-                })
-                .AddDefaultJsonOptions()
-                .AddFluentValidation();
-        }
-
-        public static IMvcCoreBuilder AddDefaultJsonOptions(this IMvcCoreBuilder builder)
-           => builder.AddNewtonsoftJson(o =>
-           {
-               o.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-               o.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
-               o.SerializerSettings.DateParseHandling = DateParseHandling.DateTimeOffset;
-               o.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
-               o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-               o.SerializerSettings.Formatting = Formatting.Indented;
-           });
-
-        public static IMvcBuilder AddDefaultJsonOptions(this IMvcBuilder builder)
-            => builder.AddNewtonsoftJson(o =>
-            {
-                o.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                o.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
-                o.SerializerSettings.DateParseHandling = DateParseHandling.DateTimeOffset;
-                o.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
-                o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                o.SerializerSettings.Formatting = Formatting.Indented;
-            });
+      
 
         public static IServiceCollection AddApiBehaviorOptions(this IServiceCollection services)
         {
@@ -82,7 +69,6 @@ namespace Joker.Mvc
             });
             return services;
         }
-
 
         public static IServiceCollection AddInitializers(this IServiceCollection services, params Type[] initializers)
           => initializers == null
@@ -98,15 +84,5 @@ namespace Joker.Mvc
 
                   return startupInitializer;
               });
-
-        public static IApplicationBuilder UseErrorHandler(this IApplicationBuilder builder)
-            => builder.UseMiddleware<ErrorHandlerMiddleware>();
-
-        public static IApplicationBuilder UseAllForwardedHeaders(this IApplicationBuilder builder)
-            => builder.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.All
-            });
-
     }
 }

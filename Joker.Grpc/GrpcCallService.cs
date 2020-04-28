@@ -2,13 +2,15 @@
 using System.Threading.Tasks;
 using Grpc.Core;
 using Grpc.Net.Client;
+using Joker.Shared.Exceptions;
 using Serilog;
 
 namespace Joker.Grpc
 {
     public static class GrpcCallService
     {
-     public static async Task<TResponse> CallServiceAsync<TResponse>(string urlGrpc, Func<GrpcChannel, Task<TResponse>> func)
+        public static async Task<TResponse> CallServiceAsync<TResponse>(string urlGrpc,
+            Func<GrpcChannel, Task<TResponse>> func)
         {
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2Support", true);
@@ -24,7 +26,7 @@ namespace Joker.Grpc
             catch (RpcException e)
             {
                 Log.Error($"gRPC Calling Error via grpc: {e.Status} - {e.Message}");
-                return default;
+                throw new ApiException(e, (int) e.StatusCode);
             }
             finally
             {
@@ -49,6 +51,7 @@ namespace Joker.Grpc
             catch (RpcException e)
             {
                 Log.Error($"gRPC Calling Error via grpc: {e.Status} - {e.Message}");
+                throw new ApiException(e, (int) e.StatusCode);
             }
             finally
             {

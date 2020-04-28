@@ -2,7 +2,7 @@
 using Joker.Shared.Models.Base;
 using Joker.Shared.Models.Enums;
 
-namespace Joker.Shared.Expections
+namespace Joker.Shared.Exceptions
 {
     public class ApiException : System.Exception
     {

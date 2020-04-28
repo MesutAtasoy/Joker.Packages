@@ -1,4 +1,4 @@
-﻿using Joker.Shared.Expections;
+﻿using Joker.Shared.Exceptions;
 using Joker.Shared.Models.Enums;
 using System;
 using System.Collections.Generic;

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using Joker.Shared.Expections;
+using Joker.Shared.Exceptions;
 using Joker.Shared.Models.Base;
 
 namespace Joker.Mvc.Middlewares
