@@ -1,27 +1,26 @@
-﻿using Joker.Shared.Options;
-using Microsoft.Extensions.Configuration;
+﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Joker.Cache
 {
     public static class Extensions
     {
-        private static readonly string SectionName = "cache";
-
-        public static IServiceCollection AddJokerCache(this IServiceCollection services)
+        public static IServiceCollection AddJokerCache(this IServiceCollection services, Action<JokerCacheOptions> options)
         {
-            IConfiguration _configuration;
-            using (var serviceProvider = services.BuildServiceProvider())
-            {
-                _configuration = serviceProvider.GetService<IConfiguration>();
-            }
-
-            services.AddOption<JokerCacheOptions>(SectionName);
-            var options = _configuration.GetOptions<JokerCacheOptions>(SectionName);
+            var jokerCacheOptions = new JokerCacheOptions(); 
+            
+            options.Invoke(jokerCacheOptions);
+            
+            if(string.IsNullOrEmpty(jokerCacheOptions.Instance))
+                throw new ArgumentNullException(nameof(jokerCacheOptions.Instance));
+            
+            if(string.IsNullOrEmpty(jokerCacheOptions.ConnectionString))
+                throw new ArgumentNullException(nameof(jokerCacheOptions.ConnectionString));
+                
             services.AddDistributedRedisCache(o =>
             {
-                o.Configuration = options.ConnectionString;
-                o.InstanceName = options.Instance;
+                o.Configuration = jokerCacheOptions.ConnectionString;
+                o.InstanceName = jokerCacheOptions.Instance;
             });
 
             services.AddTransient<IJokerDistributedCache, JokerDistributedCache>();
