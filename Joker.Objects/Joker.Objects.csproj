@@ -4,7 +4,7 @@
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>Joker.Objects</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Joker</Authors>
     <Company>Joker</Company>
     <PackageDescription>Shared models, exception, options!</PackageDescription>

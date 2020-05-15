@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Joker.Shared.Models.Base;
 using Joker.Shared.Models.Enums;
 
 namespace Joker.Shared.Exceptions
 {
+    [Serializable]
     public class ApiException : System.Exception
     {
         public int StatusCode { get; set; }
@@ -12,6 +14,11 @@ namespace Joker.Shared.Exceptions
 
         public object Result { get; set; }
 
+        public ApiException(System.Runtime.Serialization.SerializationInfo info, 
+            System.Runtime.Serialization.StreamingContext context) : base(info, context)
+        {
+        }
+        
         public ApiException(string message,
             ResponseMessageType messageType = ResponseMessageType.BadRequest,
             object data = null,
