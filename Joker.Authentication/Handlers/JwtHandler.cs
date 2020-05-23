@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using Joker.Authentication.Extensions;
 using Joker.Authentication.Models;
@@ -80,12 +81,20 @@ namespace Joker.Authentication.Handlers
             return new JsonWebToken
             {
                 AccessToken = token,
-                RefreshToken = string.Empty,
+                RefreshToken = GenerateRefreshToken(),
                 Expires = expires.ToTimestamp(),
                 Id = userId,
                 Role = roles ?? new List<string>(),
                 Claims = customClaims.ToDictionary(c => c.Type, c => c.Value)
             };
+        }
+        
+        public string GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(randomNumber);
+            return Convert.ToBase64String(randomNumber);
         }
 
         public JsonWebTokenPayload GetTokenPayload(string accessToken)

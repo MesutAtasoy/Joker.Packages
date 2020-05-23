@@ -86,16 +86,16 @@ namespace Joker.Objects
             return matchingItem;
         }
 
-        private static T parse<T, K>(K value, string description, Func<T, bool> predicate) where T : Enumeration<TKey>, new()
+        private static T parse<T, K>(K value, string description, Func<T, bool> predicate)
+            where T : Enumeration<TKey>, new()
         {
             var matchingItem = GetAll<T>().FirstOrDefault(predicate);
 
-            if (matchingItem != null) 
+            if (matchingItem != null)
                 return matchingItem;
-            
+
             var message = string.Format("'{0}' is not a valid {1} in {2}", value, description, typeof(T));
             throw new ApplicationException(message);
-
         }
 
         public int CompareTo(object other)
@@ -107,5 +107,9 @@ namespace Joker.Objects
 
     public abstract class Enumeration : Enumeration<Guid>
     {
+        protected Enumeration(Guid value, string name)
+            : base(value, name)
+        {
+        }
     }
 }
