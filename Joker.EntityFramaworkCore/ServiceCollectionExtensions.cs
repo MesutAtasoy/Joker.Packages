@@ -53,16 +53,16 @@ namespace Joker.EntityFramaworkCore
             return services;
         }
 
-        public static IServiceCollection AddJokerNpDbContext<TContext>(this IServiceCollection services, Action<JokerDbContextOptionBuilder> optionBuilder)
+        public static IServiceCollection AddJokerNpDbContext<TContext>(this IServiceCollection services, Action<JokerNpDbContextOptionBuilder> optionBuilder)
          where TContext : DbContext
         {
-            JokerDbContextOptionBuilder contextOptionBuilder = new JokerDbContextOptionBuilder();
+            var contextOptionBuilder = new JokerNpDbContextOptionBuilder();
             optionBuilder.Invoke(contextOptionBuilder);
 
             if (string.IsNullOrEmpty(contextOptionBuilder.ConnectionString))
-                throw new ArgumentNullException("Connectionstring can not be null", nameof(contextOptionBuilder.ConnectionString));
+                throw new ArgumentNullException(nameof(ServiceCollectionExtensions), nameof(contextOptionBuilder.ConnectionString));
 
-            string assemblyName = typeof(TContext).Namespace;
+            var assemblyName = typeof(TContext).Namespace;
 
             services.AddDbContext<TContext>(options =>
             {
@@ -70,6 +70,9 @@ namespace Joker.EntityFramaworkCore
                 {
                     if (contextOptionBuilder.EnableMigration)
                         sqlOptions.MigrationsAssembly(assemblyName);
+                    
+                    if (contextOptionBuilder.UseNetTopologySuite)
+                        sqlOptions.UseNetTopologySuite();
                 });
             });
 
