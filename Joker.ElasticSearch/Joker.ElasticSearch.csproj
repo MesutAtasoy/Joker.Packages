@@ -8,7 +8,7 @@
         <Authors>Joker</Authors>
         <Company>Joker</Company>
         <PackageDescription>Joker ElasticSearch!</PackageDescription>
-        <RepositoryUrl>https://github.com/MesutAtasoy/Joker.ElasticSearch</RepositoryUrl>
+        <RepositoryUrl>https://github.com/MesutAtasoy/Joker.Packages</RepositoryUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Description>Joker ElasticSearch!</Description>
         <ApplicationIcon />
