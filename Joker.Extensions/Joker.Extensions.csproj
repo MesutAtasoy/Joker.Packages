@@ -4,7 +4,7 @@
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>Joker.Extensions</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Joker</Authors>
     <Company>Joker</Company>
     <PackageDescription>Shared models, exception, options!</PackageDescription>
@@ -13,6 +13,7 @@
     <Description>Strong Type extensions.</Description>
     <ApplicationIcon />
     <StartupObject />
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   
   <ItemGroup>
