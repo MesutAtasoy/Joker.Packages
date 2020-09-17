@@ -4,7 +4,7 @@
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>Joker.Cache</PackageId>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
     <Authors>Joker</Authors>
     <Company>Joker</Company>
     <PackageDescription>Joker Cache!</PackageDescription>
