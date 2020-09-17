@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Authentication", "Jok
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.ElasticSearch", "Joker.ElasticSearch\Joker.ElasticSearch.csproj", "{3E87BF10-A5FB-48DF-A453-15DE3024C11A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.DispatchProxy", "Joker.DispatchProxy\Joker.DispatchProxy.csproj", "{50BFF9F5-EA61-40C6-8613-2694D57B3239}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{3E87BF10-A5FB-48DF-A453-15DE3024C11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E87BF10-A5FB-48DF-A453-15DE3024C11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E87BF10-A5FB-48DF-A453-15DE3024C11A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50BFF9F5-EA61-40C6-8613-2694D57B3239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50BFF9F5-EA61-40C6-8613-2694D57B3239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50BFF9F5-EA61-40C6-8613-2694D57B3239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50BFF9F5-EA61-40C6-8613-2694D57B3239}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

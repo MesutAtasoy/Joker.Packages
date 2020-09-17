@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <PackageId>Joker.DispatchProxy</PackageId>
+        <Version>1.0.1</Version>
+        <Authors>Joker</Authors>
+        <Company>Joker</Company>
+        <PackageDescription>Joker DispatchProxy!</PackageDescription>
+        <RepositoryUrl>https://github.com/MesutAtasoy/Joker.Packages</RepositoryUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Description>Joker DispatchProxy!</Description>
+        <ApplicationIcon />
+        <StartupObject />
+    </PropertyGroup>
+
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.1" />
+    </ItemGroup>
+
+</Project>

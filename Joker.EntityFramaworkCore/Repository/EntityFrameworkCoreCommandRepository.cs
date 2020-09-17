@@ -111,7 +111,7 @@ namespace Joker.EntityFrameworkCore
             Context.DetectChangesLazyLoading(true);
 
             var entity = Context.Set<T>().Find(key);
-
+            
             var entry = Context.Entry(entity);
 
             entry.CurrentValues.SetValues(item);
