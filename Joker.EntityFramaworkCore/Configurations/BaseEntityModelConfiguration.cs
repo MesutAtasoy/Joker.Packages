@@ -15,4 +15,16 @@ namespace Joker.EntityFrameworkCore.Configurations
             builder.Property(e => e.IsDeleted).HasDefaultValue(false);
         }
     }
+    
+    public abstract class BaseEntityModelConfigurationWithKey<T, TKey> : IEntityTypeConfiguration<T> 
+        where T : BaseEntityModel<TKey>
+    {
+        public virtual void Configure(EntityTypeBuilder<T> builder)
+        {
+            builder.Property(e => e.Id).HasDefaultValue(default(TKey));
+            builder.Property(e => e.CreatedOnUtc).HasDefaultValue(DateTime.UtcNow);
+            builder.Property(e => e.IsActive).HasDefaultValue(true);
+            builder.Property(e => e.IsDeleted).HasDefaultValue(false);
+        }
+    }
 }
