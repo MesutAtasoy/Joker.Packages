@@ -7,39 +7,63 @@ using System;
 
 namespace Joker.Logging
 {
-    public class ILoggerBuilderExtensions
+    public class LoggerBuilderExtensions
     {
-        public static Serilog.ILogger CreateLoggerElasticsearch(Action<ElkOptions> optionBuilder)
+        public static Serilog.ILogger CreateLoggerElasticSearch(Action<ElkOptions> optionBuilder)
         {
             var elkOptions = new ElkOptions();
             optionBuilder.Invoke(elkOptions);
 
             var logger = new LoggerConfiguration()
-            .Enrich.FromLogContext()
-            .Enrich.WithExceptionDetails()
-            .Enrich.WithProperty("ApplicationName", elkOptions.AppName)
-            .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(elkOptions.Url))
-            {
-                AutoRegisterTemplate = true,
-                IndexFormat = elkOptions.IndexFormat,
-                CustomFormatter = new ExceptionAsObjectJsonFormatter(renderMessage: true)
-            });
+                .Enrich.FromLogContext()
+                .Enrich.WithExceptionDetails()
+                .Enrich.WithProperty("ApplicationName", elkOptions.AppName)
+                .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(elkOptions.Url))
+                {
+                    AutoRegisterTemplate = true,
+                    IndexFormat = elkOptions.IndexFormat,
+                    CustomFormatter = new ExceptionAsObjectJsonFormatter(renderMessage: true)
+                });
 
             return logger.CreateLogger();
         }
-
-        public static Serilog.ILogger CreateLoggerConsole(Action<LoggerOptions> optionBuilder)
+        public static Serilog.ILogger CreateLoggerConsole(Action<ConsoleLoggerOptions> optionBuilder)
         {
-            var loggerOptions = new LoggerOptions();
+            var loggerOptions = new ConsoleLoggerOptions();
             optionBuilder.Invoke(loggerOptions);
 
             var logger = new LoggerConfiguration()
-            .Enrich.FromLogContext()
-            .Enrich.WithExceptionDetails()
-            .Enrich.WithProperty("ApplicationName", loggerOptions.AppName)
-            .WriteTo.Console();
+                .Enrich.FromLogContext()
+                .Enrich.WithExceptionDetails()
+                .Enrich.WithProperty("ApplicationName", loggerOptions.AppName)
+                .UseConsole(optionBuilder);
 
             return logger.CreateLogger();
+        }
+        public static Serilog.ILogger CreateLoggerSeq(Action<SeqLoggerOptions> optionBuilder)
+        {
+            var loggerOptions = new SeqLoggerOptions();
+            optionBuilder.Invoke(loggerOptions);
+
+            var logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .Enrich.WithExceptionDetails()
+                .Enrich.WithProperty("ApplicationName", loggerOptions.AppName)
+                .UseSeq(optionBuilder);
+
+            return logger.CreateLogger();
+        }
+        public static LoggerConfiguration CreateLoggerInstance(Action<LoggerOptions> optionBuilder)
+        {
+            var loggerOptions = new LoggerOptions();
+            optionBuilder.Invoke(loggerOptions);
+            
+            var logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .Enrich.WithExceptionDetails()
+                .Enrich.WithProperty("ApplicationName", loggerOptions.AppName);
+            
+            return logger;
         }
     }
 }
