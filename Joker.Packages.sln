@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.AspNetCore", "Joker.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.Mvc", "Joker.Mvc\Joker.Mvc.csproj", "{351CD6F3-612A-4E44-BD9A-7ACA38739728}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.WebHost", "Joker.WebHost\Joker.WebHost.csproj", "{788F3363-AAB4-4D0A-BC4C-DF9747B75A4C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Logging", "Joker.Logging\Joker.Logging.csproj", "{EF330219-904E-447E-A606-8F43569852EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.ElasticSearch", "Joker.ElasticSearch\Joker.ElasticSearch.csproj", "{3E87BF10-A5FB-48DF-A453-15DE3024C11A}"
@@ -32,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.CAP", "Joker.CAP\Joker.CAP.csproj", "{F3E56BC0-36CD-439C-B964-0237C3F0A432}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EntityFrameworkCore.Domain", "Joker.EntityFrameworkCore.Domain\Joker.EntityFrameworkCore.Domain.csproj", "{499AB156-D8BB-4D30-BE88-C7D5A51AF8CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EntityFrameworkCore.Migration", "Joker.EntityFrameworkCore.Migration\Joker.EntityFrameworkCore.Migration.csproj", "{021104B8-C7CE-4399-A0E6-4BC06963B553}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,10 +59,6 @@ Global
 		{351CD6F3-612A-4E44-BD9A-7ACA38739728}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{351CD6F3-612A-4E44-BD9A-7ACA38739728}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{351CD6F3-612A-4E44-BD9A-7ACA38739728}.Release|Any CPU.Build.0 = Release|Any CPU
-		{788F3363-AAB4-4D0A-BC4C-DF9747B75A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{788F3363-AAB4-4D0A-BC4C-DF9747B75A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{788F3363-AAB4-4D0A-BC4C-DF9747B75A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{788F3363-AAB4-4D0A-BC4C-DF9747B75A4C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF330219-904E-447E-A606-8F43569852EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EF330219-904E-447E-A606-8F43569852EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF330219-904E-447E-A606-8F43569852EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -99,6 +95,10 @@ Global
 		{499AB156-D8BB-4D30-BE88-C7D5A51AF8CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{499AB156-D8BB-4D30-BE88-C7D5A51AF8CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{499AB156-D8BB-4D30-BE88-C7D5A51AF8CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{021104B8-C7CE-4399-A0E6-4BC06963B553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021104B8-C7CE-4399-A0E6-4BC06963B553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021104B8-C7CE-4399-A0E6-4BC06963B553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021104B8-C7CE-4399-A0E6-4BC06963B553}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
