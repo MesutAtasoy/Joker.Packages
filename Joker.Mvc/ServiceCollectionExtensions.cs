@@ -1,13 +1,24 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Joker.Mvc.Initializers;
+using MediatR;
 
 namespace Joker.Mvc
 {
     public static class ServiceCollectionExtensions
     {
+        public static IServiceCollection AddJokerMediatr(this IServiceCollection services,
+            params Type[] assemblyPointerTypes)
+        {
+            services.AddMediatR(assemblyPointerTypes);
+            services.AddValidatorsFromAssembly(assemblyPointerTypes.First().Assembly);
+
+            return services;
+        }
+        
         public static IServiceCollection AddJokerHttpContextAccessor(this IServiceCollection services)
         {
             services.AddHttpContextAccessor();
