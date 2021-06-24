@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Joker.Domain\Joker.Domain.csproj" />
+      <ProjectReference Include="..\Joker.EntityFrameworkCore\Joker.EntityFrameworkCore.csproj" />
+      <ProjectReference Include="..\Joker.EventBus\Joker.EventBus.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
+    </ItemGroup>
+
+</Project>

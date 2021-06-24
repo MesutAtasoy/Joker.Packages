@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Html;
 
@@ -79,5 +80,28 @@ namespace Joker.Extensions
             byte[] bytes = System.Text.Encoding.GetEncoding("Cyrillic").GetBytes(txt);
             return System.Text.Encoding.ASCII.GetString(bytes);
         }
+        
+        public static bool IsValidJson(this string text)
+        {
+            text = text.Trim();
+            if ((text.StartsWith("{") && text.EndsWith("}")) ||
+                (text.StartsWith("[") && text.EndsWith("]")))
+            {
+                try
+                {
+                    JsonDocument.Parse(text);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }

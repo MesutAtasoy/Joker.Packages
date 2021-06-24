@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Joker.Shared.Exceptions;
-using Joker.Shared.Models.Base;
+using Joker.Response;
 
 namespace Joker.Mvc.Middlewares
 {
@@ -39,29 +37,18 @@ namespace Joker.Mvc.Middlewares
         private static Task HandleErrorAsync(HttpContext context, Exception exception)
         {
             var statusCode = (int)HttpStatusCode.InternalServerError;
-            var responseMessages = new List<ResponseMessage>();
-            var validationModels = new List<ValidationModel>();
-            switch (exception)
+
+            var response = new JokerBaseResponse
             {
-                case ApiException e:
-                    statusCode = e.StatusCode;
-                    responseMessages = e.Messages;
-                    validationModels = e.Validations;
-                    break;
-            }
-            var response = new BaseResponseModel()
-            {
-                StatusCode = (int)statusCode,
-                Exception = exception
+                StatusCode = statusCode,
+                Messages = new List<string>
+                {
+                    exception.Message,
+                    exception.StackTrace
+                }
             };
-
-            if (responseMessages != null && responseMessages.Any())
-                response.Messages = new HashSet<ResponseMessage>(responseMessages);
-
-            if (validationModels != null && validationModels.Any())
-                response.Validations = new HashSet<ValidationModel>(validationModels);
-
-            var payload = JsonConvert.SerializeObject(response);
+            
+            var payload = JsonSerializer.Serialize(response);
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)statusCode;
             return context.Response.WriteAsync(payload);

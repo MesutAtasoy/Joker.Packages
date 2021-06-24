@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Joker.Shared.Models.Base;
 using System.Linq;
 using System.Net;
+using Joker.Response;
 
 namespace Joker.Mvc.Filters
 {
@@ -11,9 +11,12 @@ namespace Joker.Mvc.Filters
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             if (context.ModelState.IsValid)
+            {
                 return;
 
-            var response = new BaseResponseModel
+            }
+
+            var response = new JokerBaseResponse
             {
                 StatusCode = (int)HttpStatusCode.BadRequest
             };
@@ -23,10 +26,7 @@ namespace Joker.Mvc.Filters
                 .Select(v => v.ErrorMessage)
                 .ToList();
 
-            response.Validations.Add(new ValidationModel
-            {
-                Messages = errors.ToArray()
-            });
+            response.AddMessages(errors);
 
             context.Result = new BadRequestObjectResult(response)
             {
