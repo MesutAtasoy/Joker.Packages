@@ -24,6 +24,7 @@ namespace Joker.EntityFrameworkCore.Migration
 
                 try
                 {
+                    //Test Commit
                     logger.LogInformation("Migrating database associated with context {DbContextName}",
                         typeof(TContext).Name);
 
