@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Joker.EventBus;
 using Joker.Mongo.Domain.Context;
 using Joker.Mongo.Domain.Repository.Contracts;
 
@@ -14,10 +15,10 @@ namespace Joker.Mongo.Domain.Repository
         private readonly IMongoDomainQueryRepository<T> _mongoDomainQueryRepository;
         private readonly IMongoDomainCommandRepository<T> _mongoDomainCommandRepository;
         
-        public MongoDomainDomainRepository(IMongoDomainContext domainContext)
+        public MongoDomainDomainRepository(IMongoDomainContext domainContext,  IEventDispatcher eventDispatcher)
         {
             _mongoDomainQueryRepository = new MongoDomainQueryRepository<T>(domainContext);
-            _mongoDomainCommandRepository = new MongoDomainCommandRepository<T>(domainContext);
+            _mongoDomainCommandRepository = new MongoDomainCommandRepository<T>(domainContext, eventDispatcher);
         }
 
         public virtual IQueryable<T> Get()
