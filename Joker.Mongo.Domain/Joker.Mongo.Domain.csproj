@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+        <PackageReference Include="MongoDB.Bson" Version="2.11.5" />
+        <PackageReference Include="MongoDB.Driver" Version="2.11.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Joker.Domain\Joker.Domain.csproj" />
+        <ProjectReference Include="..\Joker.EventBus\Joker.EventBus.csproj" />
+        <ProjectReference Include="..\Joker.Exceptions\Joker.Exceptions.csproj" />
+        <ProjectReference Include="..\Joker.Mongo\Joker.Mongo.csproj" />
+        <ProjectReference Include="..\Joker.Repositories\Joker.Repositories.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EntityFrameworkCore.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.EntityFrameworkCore.Migration", "Joker.EntityFrameworkCore.Migration\Joker.EntityFrameworkCore.Migration.csproj", "{021104B8-C7CE-4399-A0E6-4BC06963B553}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Mongo", "Joker.Mongo\Joker.Mongo.csproj", "{6D5BD834-D1D8-4A90-B6C9-CDD4B84E16A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Mongo.Domain", "Joker.Mongo.Domain\Joker.Mongo.Domain.csproj", "{F55E1730-617A-4F0A-B35F-4C7053649DCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,14 @@ Global
 		{021104B8-C7CE-4399-A0E6-4BC06963B553}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{021104B8-C7CE-4399-A0E6-4BC06963B553}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{021104B8-C7CE-4399-A0E6-4BC06963B553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D5BD834-D1D8-4A90-B6C9-CDD4B84E16A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D5BD834-D1D8-4A90-B6C9-CDD4B84E16A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D5BD834-D1D8-4A90-B6C9-CDD4B84E16A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D5BD834-D1D8-4A90-B6C9-CDD4B84E16A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F55E1730-617A-4F0A-B35F-4C7053649DCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F55E1730-617A-4F0A-B35F-4C7053649DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F55E1730-617A-4F0A-B35F-4C7053649DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F55E1730-617A-4F0A-B35F-4C7053649DCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
