@@ -5,6 +5,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Joker.Mvc.Initializers;
 using MediatR;
+using Microsoft.AspNetCore.Mvc.Versioning;
 
 namespace Joker.Mvc
 {
@@ -39,6 +40,15 @@ namespace Joker.Mvc
             });
             return services;
         }
+        
+        public static IServiceCollection AddApiVersion(this IServiceCollection services, IApiVersionReader apiVersionReader = null)
+            => services.AddApiVersioning(config =>
+            {
+                config.DefaultApiVersion = new ApiVersion(1, 0);
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ReportApiVersions = true;
+                config.ApiVersionReader = apiVersionReader ?? new HeaderApiVersionReader("X-Api-Version");
+            });
 
         public static IServiceCollection AddInitializers(this IServiceCollection services, params Type[] initializers)
           => initializers == null
