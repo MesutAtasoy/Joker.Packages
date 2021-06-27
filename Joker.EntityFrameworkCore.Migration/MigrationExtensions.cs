@@ -1,16 +1,16 @@
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Polly;
 using System;
 using System.Data.SqlClient;
+using Microsoft.Extensions.Hosting;
 
 namespace Joker.EntityFrameworkCore.Migration
 {
     public static class MigrationExtensions
     {
-        public static IWebHost MigrateDbContext<TContext>(this IWebHost webHost,
+        public static IHost MigrateDbContext<TContext>(this IHost webHost,
             Action<TContext, IServiceProvider> seeder) where TContext
             : DbContext
         {
