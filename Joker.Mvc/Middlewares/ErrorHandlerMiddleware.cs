@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Joker.Exceptions;
 using Joker.Response;
 
 namespace Joker.Mvc.Middlewares
@@ -38,13 +39,19 @@ namespace Joker.Mvc.Middlewares
         {
             var statusCode = (int)HttpStatusCode.InternalServerError;
 
+            switch (exception)
+            {
+                case StatusCodeException e:
+                    statusCode = e.StatusCode;
+                    break;
+            }
+            
             var response = new JokerBaseResponse
             {
                 StatusCode = statusCode,
                 Messages = new List<string>
                 {
-                    exception.Message,
-                    exception.StackTrace
+                    exception.Message
                 }
             };
             

@@ -29,6 +29,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\Joker.Exceptions\Joker.Exceptions.csproj" />
     <ProjectReference Include="..\Joker.Response\Joker.Response.csproj" />
   </ItemGroup>
 
