@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Joker.Mongo.Domain\Joker.Mongo.Domain.csproj" />
       <ProjectReference Include="..\Joker.Mongo\Joker.Mongo.csproj" />
     </ItemGroup>
 
