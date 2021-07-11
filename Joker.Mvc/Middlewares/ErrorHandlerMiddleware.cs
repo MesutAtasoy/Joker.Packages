@@ -37,7 +37,7 @@ namespace Joker.Mvc.Middlewares
 
         private static Task HandleErrorAsync(HttpContext context, Exception exception)
         {
-            var statusCode = (int)HttpStatusCode.InternalServerError;
+            var statusCode = (int) HttpStatusCode.InternalServerError;
 
             switch (exception)
             {
@@ -45,21 +45,17 @@ namespace Joker.Mvc.Middlewares
                     statusCode = e.StatusCode;
                     break;
             }
-            
+
             var response = new JokerBaseResponse
             {
                 StatusCode = statusCode,
-                Messages = new List<string>
-                {
-                    exception.Message
-                }
+                Message = exception.Message
             };
-            
+
             var payload = JsonSerializer.Serialize(response);
             context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)statusCode;
+            context.Response.StatusCode = (int) statusCode;
             return context.Response.WriteAsync(payload);
         }
     }
-
 }

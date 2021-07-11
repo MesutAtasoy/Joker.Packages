@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Joker.Response
+﻿namespace Joker.Response
 {
     public class JokerBaseResponse : JokerBaseResponse<object>
     {
@@ -8,18 +6,17 @@ namespace Joker.Response
     
     public class JokerBaseResponse<T>
     {
-        protected JokerBaseResponse()
+        public JokerBaseResponse()
         {
-            Messages = new List<string>();
         }
 
-        protected JokerBaseResponse(T payload) 
+        public JokerBaseResponse(T payload) 
             : this()
         {
             Payload = payload;
         }
         
-        protected JokerBaseResponse(T payload, int statusCode)
+        public JokerBaseResponse(T payload, int statusCode)
             : this()
         {
             Payload = payload;
@@ -27,28 +24,16 @@ namespace Joker.Response
         }
         
         
-        protected JokerBaseResponse(T payload, int statusCode, List<string> messages)
+        public JokerBaseResponse(T payload, int statusCode, string message)
             : this()
         {
             Payload = payload;
             StatusCode = statusCode;
-            Messages = messages;
+            Message = message;
         }
         
         public int StatusCode { get; set; }
-        public List<string> Messages { get; set; }
+        public string Message { get; set; }
         public T Payload { get; set; }
-
-        public void AddMessage(string message)
-        {
-            Messages ??= new List<string>();
-            Messages.Add(message);
-        }
-        
-        public void AddMessages(List<string> messages)
-        {
-            Messages ??= new List<string>();
-            Messages.AddRange(messages);
-        }
     }
 }
