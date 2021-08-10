@@ -2,6 +2,7 @@
 using System.Linq;
 using System;
 using FluentValidation;
+using Joker.Mvc.Behaviors;
 using Microsoft.AspNetCore.Mvc;
 using Joker.Mvc.Initializers;
 using MediatR;
@@ -16,7 +17,7 @@ namespace Joker.Mvc
         {
             services.AddMediatR(assemblyPointerTypes);
             services.AddValidatorsFromAssembly(assemblyPointerTypes.First().Assembly);
-
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             return services;
         }
         
