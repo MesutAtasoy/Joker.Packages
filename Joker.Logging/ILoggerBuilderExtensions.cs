@@ -4,6 +4,7 @@ using Serilog.Exceptions;
 using Serilog.Formatting.Elasticsearch;
 using Serilog.Sinks.Elasticsearch;
 using System;
+using Serilog.Events;
 
 namespace Joker.Logging
 {
@@ -18,6 +19,7 @@ namespace Joker.Logging
                 .Enrich.FromLogContext()
                 .Enrich.WithExceptionDetails()
                 .Enrich.WithProperty("ApplicationName", elkOptions.AppName)
+                .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
                 .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(elkOptions.Url))
                 {
                     AutoRegisterTemplate = true,
