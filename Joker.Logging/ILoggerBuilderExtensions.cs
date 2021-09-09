@@ -7,7 +7,7 @@ using System;
 
 namespace Joker.Logging
 {
-    public class LoggerBuilderExtensions
+    public static class LoggerBuilder
     {
         public static Serilog.ILogger CreateLoggerElasticSearch(Action<ElkOptions> optionBuilder)
         {
