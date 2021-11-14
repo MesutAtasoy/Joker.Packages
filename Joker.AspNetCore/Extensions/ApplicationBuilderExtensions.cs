@@ -2,38 +2,37 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Joker.AspNetCore.Extensions
+namespace Joker.AspNetCore.Extensions;
+
+public static class ApplicationBuilderExtensions
 {
-    public static class ApplicationBuilderExtensions
+    public static void UseSwaggerDefault(this IApplicationBuilder application)
     {
-        public static void UseSwaggerDefault(this IApplicationBuilder application)
-        {
-            application.UseSwagger();
-            application.UseSwaggerUI(cfg => cfg.SwaggerEndpoint("/swagger/api/swagger.json", string.Empty));
-        }
+        application.UseSwagger();
+        application.UseSwaggerUI(cfg => cfg.SwaggerEndpoint("/swagger/api/swagger.json", string.Empty));
+    }
 
-        public static void UseCorsDefault(this IApplicationBuilder app, string PolicyName = "CorsPolicy")
-            => app.UseCors(PolicyName);
+    public static void UseCorsDefault(this IApplicationBuilder app, string policyName = "CorsPolicy")
+        => app.UseCors(policyName);
 
-        public static void UseHstsDefault(this IApplicationBuilder app, IWebHostEnvironment env)
+    public static void UseHstsDefault(this IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+            app.UseDeveloperExceptionPage();
+        else
+            app.UseHsts();
+    }
+
+    public static void UseHstsDefault(this IApplicationBuilder app, IWebHostEnvironment env, string errorHandlingPath)
+    {
+        if (env.IsDevelopment())
         {
-            if (env.IsDevelopment())
-                app.UseDeveloperExceptionPage();
-            else
-                app.UseHsts();
+            app.UseDeveloperExceptionPage();
         }
-        
-        public static void UseHstsDefault(this IApplicationBuilder app, IWebHostEnvironment env, string errorHandlingPath)
+        else
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler(errorHandlingPath);
-                app.UseHsts();
-            }
+            app.UseExceptionHandler(errorHandlingPath);
+            app.UseHsts();
         }
     }
 }

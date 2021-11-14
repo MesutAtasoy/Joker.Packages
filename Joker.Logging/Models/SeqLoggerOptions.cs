@@ -1,7 +1,6 @@
-﻿namespace Joker.Logging.Models
+﻿namespace Joker.Logging.Models;
+
+public class SeqLoggerOptions : LoggerOptions
 {
-    public class SeqLoggerOptions : LoggerOptions
-    {
-        public string ServiceUrl { get; set; }
-    }
+    public string ServiceUrl { get; set; }
 }

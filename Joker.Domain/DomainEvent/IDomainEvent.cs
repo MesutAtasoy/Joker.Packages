@@ -1,8 +1,7 @@
 using Joker.EventBus;
 
-namespace Joker.Domain.DomainEvent
+namespace Joker.Domain.DomainEvent;
+
+public interface IDomainEvent : IEvent
 {
-    public interface IDomainEvent : IEvent
-    {
-    }
 }

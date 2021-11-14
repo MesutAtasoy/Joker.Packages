@@ -1,9 +1,6 @@
-using System.Threading.Tasks;
+namespace Joker.Mvc.Initializers;
 
-namespace Joker.Mvc.Initializers
+public interface IInitializer
 {
-    public interface IInitializer
-    {
-        Task InitializeAsync();
-    }
+    Task InitializeAsync();
 }

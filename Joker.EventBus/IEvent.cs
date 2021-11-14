@@ -1,10 +1,7 @@
-using System;
+namespace Joker.EventBus;
 
-namespace Joker.EventBus
+public interface IEvent
 {
-    public interface IEvent
-    {
-        Guid EventId { get; }
-        DateTime OccurredOn { get; }
-    }
+    Guid EventId { get; }
+    DateTime OccurredOn { get; }
 }

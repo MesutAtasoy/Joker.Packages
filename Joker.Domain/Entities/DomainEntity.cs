@@ -1,63 +1,59 @@
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 using Joker.Domain.BusinessRule;
 using Joker.Domain.DomainEvent;
 using Joker.Exceptions;
 
-namespace Joker.Domain.Entities
+namespace Joker.Domain.Entities;
+
+public abstract class DomainEntity : Entity
 {
-    public abstract class DomainEntity: Entity
+    private readonly List<IDomainEvent> _domainEvents;
+
+    [IgnoreDataMember] public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents?.AsReadOnly();
+
+    protected DomainEntity()
     {
-        private readonly List<IDomainEvent> _domainEvents;
+        _domainEvents ??= new List<IDomainEvent>();
+    }
 
-        [IgnoreDataMember]
-        public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents?.AsReadOnly();
+    protected void AddDomainEvent(IDomainEvent domainEvent)
+    {
+        Check.NotNull(domainEvent, nameof(domainEvent));
 
-        protected DomainEntity()
+        _domainEvents.Add(domainEvent);
+    }
+
+    protected void AddOrUpdateDomainEvent(IDomainEvent domainEvent)
+    {
+        Check.NotNull(domainEvent, nameof(domainEvent));
+
+        var @event = _domainEvents.FirstOrDefault(e => e.GetType() == domainEvent.GetType());
+        if (@event != null)
         {
-            _domainEvents ??= new List<IDomainEvent>();
-        }
-        
-        protected void AddDomainEvent(IDomainEvent domainEvent)
-        {
-            Check.NotNull(domainEvent, nameof(domainEvent));
-
-            _domainEvents.Add(domainEvent);
-        }
-
-        protected void AddOrUpdateDomainEvent(IDomainEvent domainEvent)
-        {
-            Check.NotNull(domainEvent, nameof(domainEvent));
-            
-            var @event = _domainEvents.FirstOrDefault(e => e.GetType() == domainEvent.GetType());
-            if (@event != null)
-            {
-                RemoveDomainEvent(domainEvent);
-            }
-            
-            AddDomainEvent(domainEvent);
+            RemoveDomainEvent(domainEvent);
         }
 
-        protected void RemoveDomainEvent(IDomainEvent domainEvent)
-        {
-            Check.NotNull(domainEvent, nameof(domainEvent));
-            _domainEvents?.Remove(domainEvent);
-        }
+        AddDomainEvent(domainEvent);
+    }
 
-        public void ClearDomainEvents()
+    protected void RemoveDomainEvent(IDomainEvent domainEvent)
+    {
+        Check.NotNull(domainEvent, nameof(domainEvent));
+        _domainEvents?.Remove(domainEvent);
+    }
+
+    public void ClearDomainEvents()
+    {
+        _domainEvents?.Clear();
+    }
+
+    protected static void CheckRule(IBusinessRule rule)
+    {
+        Check.NotNull(rule, nameof(rule));
+
+        if (rule.IsBroken())
         {
-            _domainEvents?.Clear();
-        }
-        
-        protected static void CheckRule(IBusinessRule rule)
-        {
-            Check.NotNull(rule, nameof(rule));
-            
-            if (rule.IsBroken())
-            {
-                throw new BusinessRuleValidationException(rule);
-            }
+            throw new BusinessRuleValidationException(rule);
         }
     }
 }

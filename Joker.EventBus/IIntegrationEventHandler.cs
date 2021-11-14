@@ -1,9 +1,6 @@
-using System.Threading.Tasks;
+namespace Joker.EventBus;
 
-namespace Joker.EventBus
+public interface IIntegrationEventHandler<TEvent>  where TEvent : IIntegrationEvent
 {
-    public interface IIntegrationEventHandler<TEvent>  where TEvent : IIntegrationEvent
-    {
-        Task Handle(TEvent @event);
-    }
+    Task Handle(TEvent @event);
 }

@@ -1,7 +1,6 @@
-﻿namespace Joker.EntityFrameworkCore.OptionsBuilders
+﻿namespace Joker.EntityFrameworkCore.OptionsBuilders;
+
+public class JokerNpDbContextOptionBuilder : JokerDbContextOptionBuilder
 {
-    public class JokerNpDbContextOptionBuilder : JokerDbContextOptionBuilder
-    {
-        public bool UseNetTopologySuite { get; set; }
-    }
+    public bool UseNetTopologySuite { get; set; }
 }

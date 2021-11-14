@@ -1,32 +1,30 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Joker.Exceptions
+namespace Joker.Exceptions;
+
+public static class Check
 {
-    public static class Check
+    public static void NotNull(object value, [NotNull] string paramName)
     {
-        public static void NotNull(object value, [NotNull] string paramName)
+        if (value is null)
         {
-            if (value is null)
-            {
-                throw new ArgumentNullException(paramName);
-            }
+            throw new ArgumentNullException(paramName);
         }
+    }
         
-        public static void NotEmpty(Guid value, [NotNull] string paramName)
+    public static void NotEmpty(Guid value, [NotNull] string paramName)
+    {
+        if (value == Guid.Empty)
         {
-            if (value == Guid.Empty)
-            {
-                throw new ArgumentException(paramName);
-            }
+            throw new ArgumentException(paramName);
         }
+    }
         
-        public static void NotNullOrEmpty(string value, [NotNull] string paramName)
+    public static void NotNullOrEmpty(string value, [NotNull] string paramName)
+    {
+        if (string.IsNullOrEmpty(value))
         {
-            if (string.IsNullOrEmpty(value))
-            {
-                throw new ArgumentNullException(paramName);
-            }
+            throw new ArgumentNullException(paramName);
         }
     }
 }

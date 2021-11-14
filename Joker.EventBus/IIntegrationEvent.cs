@@ -1,6 +1,5 @@
-namespace Joker.EventBus
+namespace Joker.EventBus;
+
+public interface IIntegrationEvent : IEvent
 {
-    public interface IIntegrationEvent : IEvent
-    {
-    }
 }

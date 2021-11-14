@@ -1,7 +1,6 @@
-﻿namespace Joker.ElasticSearch.Options
+﻿namespace Joker.ElasticSearch.Options;
+
+public class ElasticSearchOptions
 {
-    public class ElasticSearchOptions
-    {
-        public ElasticSearchConnectionString ConnectionString { get; set; }
-    }
+    public ElasticSearchConnectionString ConnectionString { get; set; }
 }

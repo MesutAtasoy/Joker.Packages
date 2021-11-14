@@ -1,7 +1,5 @@
-namespace Joker.Domain.Entities
+namespace Joker.Domain.Entities;
+
+public abstract class Entity
 {
-    public abstract class Entity
-    {
-        
-    }
 }

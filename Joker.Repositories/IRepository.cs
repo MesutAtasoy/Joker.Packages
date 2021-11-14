@@ -1,6 +1,5 @@
-﻿namespace Joker.Repositories
+﻿namespace Joker.Repositories;
+
+public interface IRepository<T> : IQueryRepository<T>, ICommandRepository<T> where T : class
 {
-    public interface IRepository<T> : IQueryRepository<T>, ICommandRepository<T> where T : class
-    {
-    }
 }

@@ -1,22 +1,19 @@
-using System;
+namespace Joker.Domain.BusinessRule;
 
-namespace Joker.Domain.BusinessRule
+public class BusinessRuleValidationException : Exception
 {
-    public class BusinessRuleValidationException : Exception
+    public IBusinessRule BrokenRule { get; }
+
+    public string Details { get; }
+
+    public BusinessRuleValidationException(IBusinessRule brokenRule) : base(brokenRule.Message)
     {
-        public IBusinessRule BrokenRule { get; }
+        BrokenRule = brokenRule;
+        Details = brokenRule.Message;
+    }
 
-        public string Details { get; }
-
-        public BusinessRuleValidationException(IBusinessRule brokenRule) : base(brokenRule.Message)
-        {
-            BrokenRule = brokenRule;
-            Details = brokenRule.Message;
-        }
-
-        public override string ToString()
-        {
-            return $"{BrokenRule.GetType().FullName}: {BrokenRule.Message}";
-        }
+    public override string ToString()
+    {
+        return $"{BrokenRule.GetType().FullName}: {BrokenRule.Message}";
     }
 }

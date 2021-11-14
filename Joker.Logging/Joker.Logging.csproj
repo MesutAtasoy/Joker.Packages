@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageId>Joker.Logging</PackageId>
     <Version>1.0.6</Version>
     <Authors>Joker</Authors>
@@ -11,6 +11,8 @@
     <RepositoryUrl>https://github.com/MesutAtasoy/Joker.Packages</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Logging Extensions</Description>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>

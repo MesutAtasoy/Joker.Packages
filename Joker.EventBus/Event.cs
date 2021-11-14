@@ -1,16 +1,13 @@
-using System;
+namespace Joker.EventBus;
 
-namespace Joker.EventBus
+public abstract class Event : IEvent
 {
-    public abstract class Event : IEvent
+    protected Event()
     {
-        protected Event()
-        {
-            EventId = Guid.NewGuid();
-            OccurredOn = DateTime.UtcNow;
-        }
-
-        public Guid EventId { get; }
-        public DateTime OccurredOn { get; }
+        EventId = Guid.NewGuid();
+        OccurredOn = DateTime.UtcNow;
     }
+
+    public Guid EventId { get; }
+    public DateTime OccurredOn { get; }
 }

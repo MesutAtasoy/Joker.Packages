@@ -1,7 +1,6 @@
-﻿namespace Joker.Logging.Models
+﻿namespace Joker.Logging.Models;
+
+public class ConsoleLoggerOptions : LoggerOptions
 {
-    public class ConsoleLoggerOptions : LoggerOptions
-    {
         
-    }
 }

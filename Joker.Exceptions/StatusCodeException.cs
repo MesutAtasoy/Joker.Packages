@@ -1,20 +1,19 @@
 using System;
 
-namespace Joker.Exceptions
-{
-    public abstract class StatusCodeException : Exception
-    {
-        public StatusCodeException()
-        {
-            
-        }
+namespace Joker.Exceptions;
 
-        public StatusCodeException(string message)
-            : base(message)
-        {
+public abstract class StatusCodeException : Exception
+{
+    public StatusCodeException()
+    {
             
-        }
-        
-        public int StatusCode { get; set; }
     }
+
+    public StatusCodeException(string message)
+        : base(message)
+    {
+            
+    }
+        
+    public int StatusCode { get; set; }
 }

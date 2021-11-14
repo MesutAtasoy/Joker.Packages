@@ -1,4 +1,3 @@
-using System;
 using Joker.Mongo.Domain.Context;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

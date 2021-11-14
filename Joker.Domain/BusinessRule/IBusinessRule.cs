@@ -1,8 +1,7 @@
-namespace Joker.Domain.BusinessRule
+namespace Joker.Domain.BusinessRule;
+
+public interface IBusinessRule
 {
-    public interface IBusinessRule
-    {
-        bool IsBroken();
-        string Message { get; }
-    }
+    bool IsBroken();
+    string Message { get; }
 }

@@ -1,7 +1,6 @@
-﻿namespace Joker.Mongo.Document
+﻿namespace Joker.Mongo.Document;
+
+public interface IDocument
 {
-    public interface IDocument
-    {
-        string Id { get; set; }
-    }
+    string Id { get; set; }
 }

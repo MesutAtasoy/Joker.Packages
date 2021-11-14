@@ -1,5 +1,4 @@
-﻿using System;
-using Joker.EntityFrameworkCore.OptionsBuilders;
+﻿using Joker.EntityFrameworkCore.OptionsBuilders;
 using Joker.EntityFrameworkCore.UnitOfWork;
 using Joker.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -7,93 +6,92 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Joker.EntityFrameworkCore
+namespace Joker.EntityFrameworkCore;
+
+public static class ServiceCollectionExtensions
 {
-    public static class ServiceCollectionExtensions
+    public static IServiceCollection AddJokerDbContext<TContext>(this IServiceCollection services,
+        Action<SqlServerDbContextOptionsBuilder> sqlServerOptionsAction)
+        where TContext : DbContext
     {
-        public static IServiceCollection AddJokerDbContext<TContext>(this IServiceCollection services,
-            Action<SqlServerDbContextOptionsBuilder> sqlServerOptionsAction)
-            where TContext : DbContext
+        IConfiguration configuration;
+        using (var serviceProvider = services.BuildServiceProvider())
         {
-            IConfiguration configuration;
-            using (var serviceProvider = services.BuildServiceProvider())
-            {
-                configuration = serviceProvider.GetService<IConfiguration>();
-            }
-
-            services.AddDbContext<TContext>(options =>
-            {
-                options.UseSqlServer(configuration["ConnectionString"], sqlServerOptionsAction);
-            });
-
-            return services;
+            configuration = serviceProvider.GetService<IConfiguration>();
         }
 
-        public static IServiceCollection AddJokerDbContext<TContext>(this IServiceCollection services,
-            Action<JokerDbContextOptionBuilder> optionBuilder)
-            where TContext : DbContext
+        services.AddDbContext<TContext>(options =>
         {
-            JokerDbContextOptionBuilder contextOptionBuilder = new JokerDbContextOptionBuilder();
-            optionBuilder.Invoke(contextOptionBuilder);
+            options.UseSqlServer(configuration["ConnectionString"], sqlServerOptionsAction);
+        });
 
-            if (string.IsNullOrEmpty(contextOptionBuilder.ConnectionString))
-                throw new ArgumentNullException("Connectionstring can not be null",
-                    nameof(contextOptionBuilder.ConnectionString));
+        return services;
+    }
 
-            string assemblyName = typeof(TContext).Namespace;
+    public static IServiceCollection AddJokerDbContext<TContext>(this IServiceCollection services,
+        Action<JokerDbContextOptionBuilder> optionBuilder)
+        where TContext : DbContext
+    {
+        JokerDbContextOptionBuilder contextOptionBuilder = new JokerDbContextOptionBuilder();
+        optionBuilder.Invoke(contextOptionBuilder);
 
-            services.AddDbContext<TContext>(options =>
+        if (string.IsNullOrEmpty(contextOptionBuilder.ConnectionString))
+            throw new ArgumentNullException("Connectionstring can not be null",
+                nameof(contextOptionBuilder.ConnectionString));
+
+        string assemblyName = typeof(TContext).Namespace;
+
+        services.AddDbContext<TContext>(options =>
+        {
+            options.UseSqlServer(contextOptionBuilder.ConnectionString, sqlOptions =>
             {
-                options.UseSqlServer(contextOptionBuilder.ConnectionString, sqlOptions =>
+                if (contextOptionBuilder.EnableMigration)
                 {
-                    if (contextOptionBuilder.EnableMigration)
-                    {
-                        sqlOptions.MigrationsAssembly(assemblyName);
-                        sqlOptions.EnableRetryOnFailure(maxRetryCount: contextOptionBuilder.MaxRetryCount,
-                            maxRetryDelay: contextOptionBuilder.MaxRetryDelay ?? TimeSpan.FromSeconds(30),
-                            errorNumbersToAdd: null);
-                    }
-                });
+                    sqlOptions.MigrationsAssembly(assemblyName);
+                    sqlOptions.EnableRetryOnFailure(maxRetryCount: contextOptionBuilder.MaxRetryCount,
+                        maxRetryDelay: contextOptionBuilder.MaxRetryDelay ?? TimeSpan.FromSeconds(30),
+                        errorNumbersToAdd: null);
+                }
             });
-            return services;
-        }
+        });
+        return services;
+    }
 
-        public static IServiceCollection AddJokerNpDbContext<TContext>(this IServiceCollection services,
-            Action<JokerNpDbContextOptionBuilder> optionBuilder)
-            where TContext : DbContext
+    public static IServiceCollection AddJokerNpDbContext<TContext>(this IServiceCollection services,
+        Action<JokerNpDbContextOptionBuilder> optionBuilder)
+        where TContext : DbContext
+    {
+        var contextOptionBuilder = new JokerNpDbContextOptionBuilder();
+        optionBuilder.Invoke(contextOptionBuilder);
+
+        if (string.IsNullOrEmpty(contextOptionBuilder.ConnectionString))
+            throw new ArgumentNullException(nameof(ServiceCollectionExtensions),
+                nameof(contextOptionBuilder.ConnectionString));
+
+        var assemblyName = typeof(TContext).Namespace;
+
+        services.AddDbContext<TContext>(options =>
         {
-            var contextOptionBuilder = new JokerNpDbContextOptionBuilder();
-            optionBuilder.Invoke(contextOptionBuilder);
-
-            if (string.IsNullOrEmpty(contextOptionBuilder.ConnectionString))
-                throw new ArgumentNullException(nameof(ServiceCollectionExtensions),
-                    nameof(contextOptionBuilder.ConnectionString));
-
-            var assemblyName = typeof(TContext).Namespace;
-
-            services.AddDbContext<TContext>(options =>
+            options.UseNpgsql(contextOptionBuilder.ConnectionString, sqlOptions =>
             {
-                options.UseNpgsql(contextOptionBuilder.ConnectionString, sqlOptions =>
-                {
-                    if (contextOptionBuilder.EnableMigration)
-                        sqlOptions.MigrationsAssembly(assemblyName);
+                if (contextOptionBuilder.EnableMigration)
+                    sqlOptions.MigrationsAssembly(assemblyName);
 
-                    if (contextOptionBuilder.UseNetTopologySuite)
-                        sqlOptions.UseNetTopologySuite();
-                });
+                if (contextOptionBuilder.UseNetTopologySuite)
+                    sqlOptions.UseNetTopologySuite();
             });
+        });
 
-            return services;
-        }
+        return services;
+    }
 
-        /// <summary>
-        /// Add unit of work for specific dbcontext.
-        /// </summary>
-        public static IServiceCollection AddUnitOfWork<TContext>(this IServiceCollection services)
-            where TContext : DbContext
-        {
-            services.AddScoped(typeof(IUnitOfWork), typeof(EntityFrameworkCoreUnitOfWork<TContext>));
-            return services;
-        }
+    /// <summary>
+    /// Add unit of work for specific dbcontext.
+    /// </summary>
+    public static IServiceCollection AddUnitOfWork<TContext>(this IServiceCollection services)
+        where TContext : DbContext
+    {
+        services.AddScoped(typeof(IUnitOfWork), typeof(EntityFrameworkCoreUnitOfWork<TContext>));
+        return services;
     }
 }

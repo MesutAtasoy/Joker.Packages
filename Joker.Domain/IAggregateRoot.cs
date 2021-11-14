@@ -1,7 +1,5 @@
-namespace Joker.Domain
+namespace Joker.Domain;
+
+public interface IAggregateRoot
 {
-    public interface IAggregateRoot
-    {
-        
-    }
 }

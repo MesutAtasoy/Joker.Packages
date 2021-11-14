@@ -1,14 +1,13 @@
 ﻿using MongoDB.Driver;
 
-namespace Joker.Mongo.Context
-{
-    public abstract class MongoContext : IMongoContext
-    {
-        protected MongoContext(IMongoDatabase database)
-        {
-            Database = database;
-        }
+namespace Joker.Mongo.Context;
 
-        public IMongoDatabase Database { get; }
+public abstract class MongoContext : IMongoContext
+{
+    protected MongoContext(IMongoDatabase database)
+    {
+        Database = database;
     }
+
+    public IMongoDatabase Database { get; }
 }

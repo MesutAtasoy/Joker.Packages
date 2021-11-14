@@ -1,9 +1,8 @@
 ﻿using MongoDB.Driver;
 
-namespace Joker.Mongo.Context
+namespace Joker.Mongo.Context;
+
+public interface IMongoContext
 {
-    public interface IMongoContext
-    {
-        IMongoDatabase Database { get; }
-    }
+    IMongoDatabase Database { get; }
 }

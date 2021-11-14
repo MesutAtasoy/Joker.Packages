@@ -1,8 +1,7 @@
-﻿namespace Joker.Logging.Models
+﻿namespace Joker.Logging.Models;
+
+public class LoggerOptions
 {
-    public class LoggerOptions
-    {
-        public bool Enabled { get; set; }
-        public string AppName { get; set; }
-    }
+    public bool Enabled { get; set; }
+    public string AppName { get; set; }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using Joker.Mongo.Context;
+﻿using Joker.Mongo.Context;
 using Joker.Mongo.Document;
 using Joker.Mongo.Options;
 using Joker.Mongo.Repository;
