@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Library</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <PackageId>Joker.DispatchProxy</PackageId>
         <Version>1.0.1</Version>
         <Authors>Joker</Authors>

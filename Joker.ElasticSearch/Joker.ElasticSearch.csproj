@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Library</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <PackageId>Joker.ElasticSearch</PackageId>
         <Version>1.0.3</Version>
         <Authors>Joker</Authors>

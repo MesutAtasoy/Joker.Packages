@@ -11,8 +11,6 @@
     <RepositoryUrl>https://github.com/MesutAtasoy/Joker.Packages</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Joker AspNetCore!</Description>
-    <ApplicationIcon />
-    <StartupObject />
     <LangVersion>10</LangVersion>
   </PropertyGroup>
 
