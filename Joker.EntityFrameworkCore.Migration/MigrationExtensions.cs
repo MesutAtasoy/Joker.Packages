@@ -53,7 +53,7 @@ public static class MigrationExtensions
         return webHost;
     }
     
-    public static async Task MigrateDbContext<TContext>(this IApplicationBuilder applicationBuilder,
+    public static async Task MigrateDbContextAsync<TContext>(this IApplicationBuilder applicationBuilder,
         Action<TContext, IServiceProvider> seeder) where TContext
         : DbContext
     {
