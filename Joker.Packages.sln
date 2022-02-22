@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Mongo.Migration", "Jo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Consul", "Joker.Consul\Joker.Consul.csproj", "{9EDD035F-8D08-4873-B8AD-65F405667D73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.Configuration", "Joker.Configuration\Joker.Configuration.csproj", "{80314768-BDCF-48D5-959B-79D49142D273}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{9EDD035F-8D08-4873-B8AD-65F405667D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EDD035F-8D08-4873-B8AD-65F405667D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EDD035F-8D08-4873-B8AD-65F405667D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80314768-BDCF-48D5-959B-79D49142D273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80314768-BDCF-48D5-959B-79D49142D273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80314768-BDCF-48D5-959B-79D49142D273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80314768-BDCF-48D5-959B-79D49142D273}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
