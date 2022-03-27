@@ -1,9 +1,10 @@
-﻿using Joker.Logging.Models;
+﻿using Elastic.Apm.SerilogEnricher;
+using Joker.Logging.Models;
 using Serilog;
+using Serilog.Enrichers.Span;
 using Serilog.Exceptions;
 using Serilog.Formatting.Elasticsearch;
 using Serilog.Sinks.Elasticsearch;
-using Serilog.Events;
 
 namespace Joker.Logging;
 
@@ -13,21 +14,28 @@ public static class LoggerBuilder
     {
         var elkOptions = new ElkOptions();
         optionBuilder.Invoke(elkOptions);
-
-        var logger = new LoggerConfiguration()
+        
+        var logConfiguration = new LoggerConfiguration()
             .Enrich.FromLogContext()
             .Enrich.WithExceptionDetails()
-            .Enrich.WithProperty("ApplicationName", elkOptions.AppName)
-            .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+            .Enrich.WithMachineName()
+            .Enrich.WithClientIp()
+            .Enrich.WithClientAgent()
+            .Enrich.WithSpan()
+            .Enrich.WithElasticApmCorrelationInfo()
+            .Enrich.WithProperty("Environment", elkOptions.EnvironmentName)
+            .ReadFrom.Configuration(elkOptions.Configuration)
             .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(elkOptions.Url))
             {
                 AutoRegisterTemplate = true,
                 IndexFormat = elkOptions.IndexFormat,
                 CustomFormatter = new ExceptionAsObjectJsonFormatter(renderMessage: true)
             });
+     
 
-        return logger.CreateLogger();
+        return logConfiguration.CreateLogger();
     }
+    
     public static Serilog.ILogger CreateLoggerConsole(Action<ConsoleLoggerOptions> optionBuilder)
     {
         var loggerOptions = new ConsoleLoggerOptions();
@@ -41,6 +49,7 @@ public static class LoggerBuilder
 
         return logger.CreateLogger();
     }
+    
     public static Serilog.ILogger CreateLoggerSeq(Action<SeqLoggerOptions> optionBuilder)
     {
         var loggerOptions = new SeqLoggerOptions();
