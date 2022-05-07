@@ -3,6 +3,7 @@ using Joker.Logging.Models;
 using Serilog;
 using Serilog.Enrichers.Span;
 using Serilog.Exceptions;
+using Serilog.Filters;
 using Serilog.Formatting.Elasticsearch;
 using Serilog.Sinks.Elasticsearch;
 
@@ -24,13 +25,15 @@ public static class LoggerBuilder
             .Enrich.WithSpan()
             .Enrich.WithElasticApmCorrelationInfo()
             .Enrich.WithProperty("Environment", elkOptions.EnvironmentName)
+            .Enrich.WithProperty("ApplicationName", elkOptions.AppName)
             .ReadFrom.Configuration(elkOptions.Configuration)
             .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(elkOptions.Url))
             {
                 AutoRegisterTemplate = true,
                 IndexFormat = elkOptions.IndexFormat,
                 CustomFormatter = new ExceptionAsObjectJsonFormatter(renderMessage: true)
-            });
+            })
+            .Filter.ByExcluding(  Matching.WithProperty<string>("RequestPath", x=> x == "/api/HealthCheck/api-status"));
      
 
         return logConfiguration.CreateLogger();
